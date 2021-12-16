@@ -1,4 +1,4 @@
-# DyrdaPedroni_opttax
+<!-- ## DyrdaPedroni_opttax -->
 <div id="top"></div>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
@@ -30,9 +30,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <!-- <a href="https://github.com/github_username/repo_name"> -->
     <!--<img src="images/logo.png" alt="Logo" width="80" height="80">-->
-  </a>
+  <!-- </a> -->
 
 <h2 align="center">Optimal Fiscal Policy in a Model with Uninsurable Idiosyncratic Income Risk </h2>
 

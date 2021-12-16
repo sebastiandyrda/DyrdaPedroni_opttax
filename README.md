@@ -37,6 +37,7 @@
 <h1 align="center">Optimal Fiscal Policy in a Model with Uninsurable Idiosyncratic Income Risk </h1>
 <br>
 Conditionally Accepted at the <i>Review of Economic Studies</i> <br>
+<br>
   <p align="center">
     <h3 <br>
     Sebastian Dyrda (University of Toronto)<br>
@@ -54,6 +55,8 @@ Conditionally Accepted at the <i>Review of Economic Studies</i> <br>
     <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
     -->
   </p>
+   <br>
+   <br>
 </div>
 
 
@@ -84,7 +87,14 @@ Conditionally Accepted at the <i>Review of Economic Studies</i> <br>
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## <div align="center"> Abstract </div>
+
+<div align="justify">
+
+We study optimal fiscal policy in a standard incomplete-markets model with uninsurable idiosyncratic income risk, where a Ramsey planner chooses time-varying paths of proportional capital and labor income taxes, lump-sum transfers (or taxes), and government debt. We find that: (1) short-run capital income taxes are effective in providing redistribution since the tax base is relatively unequal and inelastic; (2) an increasing pattern of labor income taxes over time mitigates intertemporal distortions from capital income taxes; (3) the optimal policy increases overall transfers, calibrated initially to the US welfare system, by roughly $50$ percent; (4) two thirds of the welfare gains come from redistribution and the remaining third come mostly from insurance; and (5) redistribution also leads to a more efficient allocation of labor via wealth effects on labor supply--lower productivity households can afford to work relatively less.
+  
+</div>
+
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
@@ -185,6 +195,8 @@ Don't forget to give the project a star! Thanks again!
 <p align="right">(<a href="#top">back to top</a>)</p>
 
  -->
+
+## Paper
 
 <!-- LICENSE -->
 ## License

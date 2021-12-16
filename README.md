@@ -40,8 +40,8 @@ Conditionally Accepted at the <i>Review of Economic Studies</i> <br>
 <br>
   <p align="center">
     <h3 <br>
-    Sebastian Dyrda (University of Toronto)<br>
-    Marcelo Pedroni (University of Amsterdam)
+    <a href="http://dyrda.info"> Sebastian Dyrda (University of Toronto)</a><br>
+    <a href="http://sites.google.com/site/marcelozouainpedroni/">Marcelo Pedroni (University of Amsterdam)</a><br>
     </h3>
     <!--
     <br />
@@ -100,7 +100,7 @@ We study optimal fiscal policy in a standard incomplete-markets model with unins
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description` -->
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
 
 
 <!-- 
@@ -197,13 +197,21 @@ Don't forget to give the project a star! Thanks again!
  -->
 
 ## Paper
+1. The paper: <a href="http://dyrda.info/files/Dyrda_Pedroni_2021.pdf">Dyrda, Pedroni (2021)</a><br>
+2. The Online Appendix: <a href="http://dyrda.info/files/Dyrda_Pedroni_2021_Appendix.pdf"> Dyrda, Pedroni (2021) Online Appendix</a><br>
+3. NBER SI slides: <a href="http://dyrda.info/files/Dyrda_Pedroni_NBER_slides.pdf">Dyrda, Pedroni (2021) Slides</a> 
+
+## Codes
+This repository contains replication codes for the paper. 
+
+1. AHHW_bgp folder contains the codes to replicate Ramsey steady-state computations based on the method by <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3185088">Ackigoz, Hagedorn, Holter, Waki (2018)</a>. The details of derivations are provided in <a href="http://dyrda.info/files/Dyrda_Pedroni_2021_Appendix.pdf"> Section M of the Online Appendix.</a>
 
 <!-- LICENSE -->
-## License
+<!-- ## License -->
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+<!-- Distributed under the MIT License. See `LICENSE.txt` for more information. -->
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
 
 
 
@@ -211,16 +219,27 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 Sebastian Dyrda - sebastian.dyrda@utoronto.ca <br>
-Marcelo Pedroni - m.pedroni@uva.nl
+Marcelo Pedroni - m.pedroni@uva.nl<br>
+Project Link: [https://github.com/sebastiandyrda/DyrdaPedroni_opttax.git](https://github.com/sebastiandyrda/DyrdaPedroni_opttax.git)<br>
 
-Project Link: [https://github.com/sebastiandyrda/DyrdaPedroni_opttax.git](https://github.com/sebastiandyrda/DyrdaPedroni_opttax.git)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+<!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
 
 
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
+<div align="justify">
+We thank Anmol Bhandari, V.V. Chari, Carlos
+Eugênio da Costa, Jonathan Heathcote, Hans Holter, Albert Jan Hummel, Larry Jones, Gueorgui Kambourov, Burhan Kuruscu, Chris Phelan, Diego Restuccia, José-Víctor Ríos-Rull, Cezar Santos, Christian
+Stoltenberg, Pedro Teles, and Yikai Wang for many useful comments and discussions. We also thank the participants of the seminars at the University of Minnesota, Midwest Macro Meeting, NASM of the Econometric
+Society, NBER Summer Institute Macro and Public Finance, SED Tolouse, EEA-ESEM Geneva, Queen’s
+University, University of Oslo, University of Amsterdam, Goethe University Frankfurt, Universidade Nova
+de Lisboa, University of Western Ontario, LuBraMacro, and Banco de Portugal. This work was carried out
+in part using computing resources at the University of Minnesota Supercomputing Institute. Computations
+were also performed on the Niagara supercomputer at the SciNet HPC Consortium. SciNet is funded by: the
+Canada Foundation for Innovation; the Government of Ontario; Ontario Research Fund–Research Excellence;
+and the University of Toronto.
+</div>
 <!-- 
 * []()
 * []()

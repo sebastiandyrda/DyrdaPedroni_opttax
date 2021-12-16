@@ -115,47 +115,7 @@ SUBROUTINE DISTRIBUTION_Q(app,f,aa_const,bb_const,out_fq)
 					ELSEIF (qq1 .ge. q_grid(n_q)) THEN
 						zzq(j,i,q,i_q) = m
 						z_prev     	   = m
-					ELSE                    
-						! IF (bb_const(j,i,q) .GE. 0.0D0) THEN					
-							! IF (i_q .EQ. 1) THEN
-								! z_prev = 1
-							! ENDIF					    
-							! found_z = 0
-							! qq      = z_prev-1
-							! DO WHILE (found_z .EQ. 0)
-								! qq = qq + 1
-								! IF (qq1 .LT. q_grid(qq+1)) THEN
-									! z = qq
-									! found_z = 1		
-								! ENDIF	
-							! ENDDO	
-							! z_prev = z					
-						! ELSE	
-							! IF (i_q .EQ. 1) THEN
-								! z_prev = p
-							! ENDIF					    
-							! found_z = 0
-							! qq      = z_prev+1
-							! DO WHILE (found_z .EQ. 0)
-								! qq = qq - 1
-								! IF (qq1 .LT. q_grid(MAX(qq-1,1))) THEN								
-									! z = qq								
-									! found_z = 1		
-								! ENDIF		
-							! ENDDO					
-							! z_prev = z					
-						! ENDIF	
-
-						! IF (z .NE. MINLOC(ABS(q_grid-qq1),1)) THEN
-							! WRITE(*,'(I5,I5,I5,I5,I5,I5,F20.10,F20.10,F20.10)') j,i,q,i_q,z, MINLOC(ABS(q_grid-qq1),1), qq1, q_grid(z), q_grid(MINLOC(ABS(q_grid-qq1),1))
-							! READ(*,*)
-						! ENDIF
-						
-						! IF (q_grid(z) .le. qq1) THEN
-							! z = z + 1
-						! ENDIF
-						! zzq(j,i,q,i_q) = z
-						
+					ELSE    
 						z = MINLOC(ABS(q_grid-qq1),1)
 						IF (q_grid(z) .le. qq1) THEN
 							z = z + 1

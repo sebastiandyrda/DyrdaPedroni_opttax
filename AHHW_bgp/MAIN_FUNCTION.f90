@@ -78,113 +78,14 @@ SUBROUTINE MAIN_FUNCTION(in_tauk,in_tauh,in_r,out_RES1,out_RES2,out_RES3)
 	tauk = in_tauk
 	tauh = in_tauh
 	r    = in_r
-	
-	!tauk = tauk0
-	!tauh = tauh0
-
-	! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	! Best fit DP Method
-	! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	! tauk   = 0.266091653024420D0 
-	! tauh   = 0.390978064124877D0
-	! BY     = 1.541D0	
-	
-	! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	! Best fit AHHW Method - r_DP
-	! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	! tauk   = 0.245397676087836D0 
-	! tauh   = 0.382408847700694D0
-	! tauk_vec = [0.245397676D0, 0.245397676D0, 0.265397676D0]
-
-	! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-	! Best fit AHHW Method - r_MGR
-	! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	!   tauk   = 0.211755829D0
-    !   tauh   = 0.389209838D0
-	! tauk   = 0.179432728D0
-	! tauh   = 0.396340371D0
-	! tauk_vec = [0.201755829D0, 0.211755829D0, 0.225397676D0]	
-
-	! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	! Best fit AHHW Method - 3 var
-	! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	tauk   = 0.2456580920D0 
-	tauh   = 0.3825493020D0
-	r      = 0.048189108D0
-
-	! tauk_vec = [0.245397676D0, 0.245397676D0, 0.265397676D0]	
-
+    
 	! ==================================================================== !
-    ! Stationary Equilibrium
-	! ==================================================================== !
-
-	! N_ITE_MGR = 22
-
-	! allocate(fig_inputs(size(tauk_vec)*(2*N_ITE_MGR),9))
-	! DO i  = 1,size(tauk_vec) 
-
-	! ite_tauk_mgr = 0	
-	! allocate(fig_temp(2*N_ITE_MGR,9),key_fig(2*N_ITE_MGR))	
-	! MGR_ADJ = 0.00025D0	
-	! DO ITE_MGR = 1,N_ITE_MGR      
-	
-	! 	ite_tauk_mgr = ite_tauk_mgr + 1
-	! 	tauk     = tauk_vec(i)
-	! 	start_se = MPI_WTIME()	
-	! 	CALL STATIONARY_EQUIL(tauk,tauh,BY,K,H,C,r,w,f,a_pol,c_pol,h_pol)
-	! 	finish_se = MPI_WTIME()	
-	
-	! ENDDO                 
-
-	! MGR_ADJ = -0.00025D0
-	! DO ITE_MGR = 1,N_ITE_MGR      
-		
-	! 	ite_tauk_mgr = ite_tauk_mgr + 1
-	! 	tauk     = tauk_vec(i)
-	! 	start_se = MPI_WTIME()	
-	! 	CALL STATIONARY_EQUIL(tauk,tauh,BY,K,H,C,r,w,f,a_pol,c_pol,h_pol)
-	! 	finish_se = MPI_WTIME()	
-	! 	! !PRINT '("SEQ  Time = ",f12.1," seconds.")',finish_se-start_se
-		
-	! ENDDO                
-
-	! key_fig = (/ (j,j=1,2*N_ITE_MGR) /)
-	! call DLASRT2('I', 2*N_ITE_MGR, fig_temp(:,9), key_fig, info)
-	! do j=1,8
-	! 	fig_temp(:,j) = fig_temp(key_fig,j)
-	! end do
-
-	! do j=1,2*N_ITE_MGR
-	! 	WRITE(*,'(A,F20.10,F20.10,F20.10,F20.10,F20.10,F20.10,F20.10,F20.10,F20.10)') 'fig_temp check ', fig_temp(j,:)
-	! end do	
-
-	! fig_inputs(((2*N_ITE_MGR)*(i-1)+1):(2*N_ITE_MGR)*i,:) = fig_temp(:,:)
-
-	! deallocate(fig_temp,key_fig)
-	
-	
-	! END DO	
-
-	! do j=1,(size(tauk_vec)*(2*N_ITE_MGR))
-	! 	WRITE(*,'(A,F20.10,F20.10,F20.10,F20.10,F20.10,F20.10,F20.10,F20.10,F20.10)') 'fig_inputs ', fig_inputs(j,:)
-	! end do	
-
-
-
-	DO ITE_TAU = 1,31
-
-	!tauk  = 0.266091653024420D0 + (DBLE(ITE_TAU - 6)/5.0D0)*0.05D0
-	!tauk  = 0.2456580920D0 + (DBLE(ITE_TAU - 16)/15.0D0)*0.05D0
-	tauh  = 0.3825493020D0 + (DBLE(ITE_TAU - 16)/15.0D0)*0.05D0
-
+    ! Compute the stationary equilibrium
+    ! ==================================================================== !	
 	start_se = MPI_WTIME()	
 		CALL STATIONARY_EQUIL(tauk,tauh,BY,K,H,C,r,w,f,a_pol,c_pol,h_pol)
 		!CALL STATIONARY_EQUIL_DEBT(tauk,tauh,BY,K,H,C,r,w,f,a_pol,c_pol,h_pol)
 	finish_se = MPI_WTIME()		
-
-
-
-	!STOP                 !!!!!!!!!!!!!!!!!!!!!
 	
 	! ==================================================================== !
     ! Policy Function Iteration to find q'(a,e,q)
@@ -194,9 +95,11 @@ SUBROUTINE MAIN_FUNCTION(in_tauk,in_tauh,in_r,out_RES1,out_RES2,out_RES3)
 		start_pfi = MPI_WTIME()
 		CALL POLICY_FUNCTION_ITERATION(tauk,tauh,BY,K,H,C,r,w,f,a_pol,c_pol,h_pol,aa_const,bb_const)
 		finish_pfi = MPI_WTIME()
-		!PRINT '("PFI  Time = ",f12.1," seconds.")',finish_pfi-start_pfi
 	ENDIF	
 	
+	! ==================================================================== !
+    ! Construct the grid on q
+    ! ==================================================================== !	
 	q_L = MINVAL(aa_const/(1.0D0-bb_const))
 	q_H = MAXVAL(aa_const/(1.0D0-bb_const))
 	
@@ -265,10 +168,6 @@ SUBROUTINE MAIN_FUNCTION(in_tauk,in_tauh,in_r,out_RES1,out_RES2,out_RES3)
 		q_right   =  q_aux
 		q_vec     =  [q_left, q_right]
 
-		! DO i=1,(2*n_aux)
-		! 	PRINT *, 'q_vec', i, q_vec(i)
-		! END DO			
-		
 		! Remove duplicates
 		call remove_dups_real(q_vec,2*n_aux,q_nodups,size_dups)
 		n_q    = size_dups
@@ -280,9 +179,6 @@ SUBROUTINE MAIN_FUNCTION(in_tauk,in_tauh,in_r,out_RES1,out_RES2,out_RES3)
 		end if
 
 		q_grid    = q_nodups(1:n_q)
-
-		! Sort in increasing order
-		!call DLASRT2('I', p, q_grid, key, info)
 		
 	ENDIF
 
@@ -292,20 +188,19 @@ SUBROUTINE MAIN_FUNCTION(in_tauk,in_tauh,in_r,out_RES1,out_RES2,out_RES3)
 		stop
 	end if	
 
-	! ! ==================================================================== !
-    ! ! Computing the stationary distribution of (a,e,q) associated with 
-	! ! policy function a'(a,e) and q'(a,e,q)
-    ! ! ==================================================================== !    
+	! ==================================================================== !
+    ! Computing the stationary distribution of (a,e,q) associated with 
+	! policy function a'(a,e) and q'(a,e,q)
+    ! ==================================================================== !    
     
 	IF (ER .EQ. 0) THEN
 		start_dist = MPI_WTIME()
 		CALL DISTRIBUTION_Q(a_pol,f,aa_const,bb_const,fq)  
 		finish_dist = MPI_WTIME()	
-		!PRINT '("DIST  Time = ",f12.1," seconds.")',finish_dist-start_dist
 	ENDIF   
 	
     ! ==================================================================== !
-    ! Computing gamma
+    ! Compute kappa from q
     ! ==================================================================== !	
 	
 	IF (ER .EQ. 0) THEN
@@ -332,8 +227,6 @@ SUBROUTINE MAIN_FUNCTION(in_tauk,in_tauh,in_r,out_RES1,out_RES2,out_RES3)
 	PercDev_MGR  = (1.0D0-beta*(1.0D0+r))*100
 	PercDev_RES1 = (RES1)*100
 	PercDev_RES2 = (RES2)*100
-
-	!WRITE(*,'(A,F20.10,F20.10,F20.10,F20.10,F20.10,F20.10,F20.10)') 'ResFig', tauk,tauh,BY,PercDev_MGR, PercDev_RES1, PercDev_RES2, sqrt((PercDev_MGR**2)+(PercDev_RES1**2)+(PercDev_RES2**2))
     
     IF (ER .EQ. 0) THEN
 		WRITE(*,'(F15.10,F15.10,F15.10,F15.10,F15.10,F15.10,F15.10,F15.10,A10,E15.6,E15.6,E15.6,E15.6,A10,F10.1,A10,I6,A,F10.1,A,F10.1,A,F10.1,I10)') &
@@ -365,13 +258,6 @@ SUBROUTINE MAIN_FUNCTION(in_tauk,in_tauh,in_r,out_RES1,out_RES2,out_RES3)
 
 	deallocate(q_aux,q_left,q_right,q_vec,q_nodups,q_grid,key,fq,stat = status)
 
-	END DO
-
-	
-
-
-
-	STOP
     
 END SUBROUTINE MAIN_FUNCTION
     

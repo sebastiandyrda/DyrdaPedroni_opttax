@@ -114,8 +114,8 @@ REAL (8), PARAMETER :: amin   = ap(1), &
 
 ! REAL(8), DIMENSION(n_q) :: q_grid  
 
-!INTEGER, PARAMETER  :: n_aux = 2000
-INTEGER, PARAMETER  :: n_aux = 4000
+INTEGER, PARAMETER  :: n_aux = 2000
+!INTEGER, PARAMETER  :: n_aux = 4000
 INTEGER             :: n_q
 
 !REAL(8), DIMENSION(p) :: q_grid

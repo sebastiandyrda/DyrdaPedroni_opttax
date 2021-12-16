@@ -197,7 +197,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 Sebastian Dyrda - sebastian.dyrda@utoronto.ca <br>
-Marcelo Pedroni - sebastian.dyrda@utoronto.ca
+Marcelo Pedroni - m.pedroni@uva.nl
 
 Project Link: [https://github.com/sebastiandyrda/DyrdaPedroni_opttax.git](https://github.com/sebastiandyrda/DyrdaPedroni_opttax.git)
 

@@ -35,11 +35,13 @@
   <!-- </a> -->
 
 <h2 align="center">Optimal Fiscal Policy in a Model with Uninsurable Idiosyncratic Income Risk </h2>
-
+<br>
+Conditionally Accepted at the <i>Review of Economic Studies</i> <br>
   <p align="center">
-    <br>
+    <h3 <br>
     Sebastian Dyrda (University of Toronto)<br>
     Marcelo Pedroni (University of Amsterdam)
+    </h3>
     <!--
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>

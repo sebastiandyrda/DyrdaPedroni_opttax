@@ -36,7 +36,7 @@
 
 <h1 align="center">Optimal Fiscal Policy in a Model with Uninsurable Idiosyncratic Income Risk </h1>
 <br>
-Conditionally Accepted at the <i>Review of Economic Studies</i> <br>
+Conditionally Accepted at <i>The Review of Economic Studies</i> <br>
 <br>
   <p align="center">
     <h3 <br>
